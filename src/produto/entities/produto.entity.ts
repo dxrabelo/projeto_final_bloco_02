@@ -1,5 +1,6 @@
-import { IsNotEmpty, IsNumber, IsPositive, Max, MaxLength } from "class-validator";
-import { Column, Entity, ManyToMany, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { IsNotEmpty, IsNumber, IsPositive, MaxLength } from "class-validator";
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Categoria } from "../../categoria/entities/categoria.entity";
 
 @Entity({ name: 'tb_produtos' })
 export class Produto {
@@ -19,4 +20,8 @@ export class Produto {
     @MaxLength(255)
     @Column({ length: 255, nullable: true })
     descricao: string;
+
+    @ManyToOne(() => Categoria, (categoria) => categoria.produtos)
+    @JoinColumn({ name: 'categoriaId' }) 
+    categoria: Categoria;
 }
