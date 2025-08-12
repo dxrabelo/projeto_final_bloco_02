@@ -20,9 +20,4 @@ export class Produto {
     @MaxLength(255)
     @Column({ length: 255, nullable: true })
     descricao: string;
-
-    @ManyToOne(() => Categoria, categoria => categoria.produtos, {
-        onDelete: 'CASCADE',
-    })
-    CATEGORIA: Categoria;
 }
