@@ -1,5 +1,5 @@
 import { IsNotEmpty, IsNumber, IsPositive, Max, MaxLength } from "class-validator";
-import { Column, Entity, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToMany, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity({ name: 'tb_produtos' })
 export class Produto {
